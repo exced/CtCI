@@ -19,4 +19,11 @@ public class C1Q1N1 {
         return true;
     }
 
+    public static void main(String[] args) {
+        String[] words = { "abcd", "hello", "world", "aaqq", "bbad", "c", ""};
+        for (String word : words) {
+            System.out.println("word " + word + " has all uniques ? " + hasAllUniqueChars(word));
+        }
+    }
+
 }
