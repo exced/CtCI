@@ -3,6 +3,17 @@
 */
 public class Q3 {
 
+    /*
+    * characters frequency of a string, in hashmap
+    */
+    public static java.util.HashMap<Character,Integer> charFrequency(String str) {
+        java.util.HashMap<Character,Integer> map = new java.util.HashMap<Character,Integer>();
+        for (int i = 0; i < str.length(); i++) {
+            Character strAt = new Character(str.charAt(i));
+            map.put(strAt, map.containsKey(strAt) ? new Integer(map.get(strAt).intValue() + 1) : new Integer(1));
+        }        
+        return map;
+    }
 
     /*
     * Naive approach
@@ -11,16 +22,7 @@ public class Q3 {
     public static boolean isPermutation(String fst, String snd) {
         if (fst.length() != snd.length())
             return false;        
-        java.util.HashMap<Character,Integer> fstMap = new java.util.HashMap<Character,Integer>();
-        java.util.HashMap<Character,Integer> sndMap = new java.util.HashMap<Character,Integer>();
-        /* count the occurence, fst and snd have same length */
-        for (int i = 0; i < fst.length(); i++) {
-            Character fstAt = new Character(fst.charAt(i));
-            Character sndAt = new Character(snd.charAt(i));
-            fstMap.put(fstAt, fstMap.containsKey(fstAt) ? new Integer(fstMap.get(fstAt).intValue() + 1) : new Integer(1));
-            sndMap.put(sndAt, sndMap.containsKey(sndAt) ? new Integer(sndMap.get(sndAt).intValue() + 1) : new Integer(1));
-        }
-        return fstMap.equals(sndMap);
+        return charFrequency(fst).equals(charFrequency(snd));
     }    
 
     public static String sort(String s) {
