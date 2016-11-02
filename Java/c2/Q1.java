@@ -5,11 +5,13 @@ package c2;
 * How would you solve this problem if a temporary buffer is not allowed?
 */
 import ctcilib.LinkedListNode;
+import ctcilib.DLinkedListNode;
+
 
 public class Q1 {
 
     /*
-    * using simply linked list
+    * using singly linked list
     */
     public static void remodeDups(LinkedListNode<T> node) {
         java.util.HashMap<T,Integer> countMap = new java.util.HashMap<T,Integer>();
@@ -18,10 +20,13 @@ public class Q1 {
             while(next != null) {
                 T data = next.getData();
                 if (countMap.containsKey(data))
-                    node.setData();
+                    if (next.getNext() == null)
+                        node.setNext(new LinkedListNode<T>());
+                    else   
+                        node.setNext(next.getNext());
                 else
                     countMap.put(data, new Integer(1));
-                /* iterate */
+
                 node = next.getNext();
                 next = next.getNext();                    
             }
@@ -31,18 +36,35 @@ public class Q1 {
     /*
     * using double linked list
     */
-    public static void removeDups2(LinkedListNode<T> node) {
+    public static void removeDups2(DLinkedListNode<T> node) {
+        java.util.HashMap<T,Integer> countMap = new java.util.HashMap<T,Integer>();
+        if (node != null) {
+            LinkedListNode<T> next = node.getNext();
+            while(next != null) {
+                T data = next.getData();
+                if (countMap.containsKey(data))
+                    if (next.getNext() == null)
+                        node.setNext(new LinkedListNode<T>());
+                    else   
+                        node.setNext(next.getNext());
+                else
+                    countMap.put(data, new Integer(1));
 
+                node = next.getNext();
+                next = next.getNext();                    
+            }
+        }        
     }
 
     public static void main(String[] args) {
         /* creating the linkedlist */
-        LinkedListNode<int> one = new LinkedListNode<int>(1);
-        LinkedListNode<int> two = new LinkedListNode<int>(2);
-        LinkedListNode<int> three = new LinkedListNode<int>(3);
-        LinkedListNode<int> one2 = new LinkedListNode<int>(1);
-        LinkedListNode<int> nul = new LinkedListNode<int>();
-        one.setNext(two);
-        two.setNext();
+        LinkedListNode<Integer> one = new LinkedListNode<Integer>(1);
+        LinkedListNode<Integer> two = new LinkedListNode<Integer>(2);
+        LinkedListNode<Integer> three = new LinkedListNode<Integer>(3);
+        LinkedListNode<Integer> one2 = new LinkedListNode<Integer>(1);
+        LinkedListNode<Integer> nul = new LinkedListNode<Integer>();
+        one.setNext(one2);
+        one2.setNext(two);
+        System.out.println(one.toString());
     }
 }

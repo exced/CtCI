@@ -25,15 +25,15 @@ public class Q6 {
     public static void main(String[] args) {
         int[][] matrix1 = {{1,2,3},{4,5,6},{7,8,9}};
         System.out.println("matrix1 before rotation");
-        printMatrix(matrix1);
+        Matrix.printMatrix(matrix1);
         System.out.println("matrix1 after rotation");
         rotate(matrix1, 3);
-        printMatrix(matrix1);
+        Matrix.printMatrix(matrix1);
         int[][] matrix2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
         System.out.println("matrix2 before rotation");
-        printMatrix(matrix2);
+        Matrix.printMatrix(matrix2);
         System.out.println("matrix2 after rotation");
         rotate(matrix2, 4);
-        printMatrix(matrix2);        
+        Matrix.printMatrix(matrix2);        
     }
 }

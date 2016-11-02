@@ -41,9 +41,9 @@ public class Q7 {
     public static void main(String[] args) {
         int[][] matrix1 = {{1,2},{0,3},{4,5}};
         System.out.println("matrix1 before setting zeros");
-        printMatrix(matrix1);
+        Matrix.printMatrix(matrix1);
         System.out.println("matrix1 after setting zeros");
         setZeros(matrix1, 3, 2);
-        printMatrix(matrix1);
+        Matrix.printMatrix(matrix1);
     }
 }

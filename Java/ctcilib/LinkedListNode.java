@@ -1,12 +1,12 @@
 package ctcilib;
 
 /*
-* Simple Linked List
+* Singly Linked List
 */
 public class LinkedListNode<T> {
 
     private T data;
-    private LinkedListNode next;
+    private LinkedListNode<T> next;
 
     public LinkedListNode() {    
     }
@@ -16,12 +16,18 @@ public class LinkedListNode<T> {
     }
 
     public T getData() { return data; }
-    public LinkedListNode getNext() { return next; }
+    public LinkedListNode<T> getNext() { return next; }
     public void setData(T data) { this.data = data; }
     public void setNext(LinkedListNode<T> next) { this.next = next; }
 
     public String toString() {
-        
+        java.lang.StringBuffer str = new java.lang.StringBuffer();
+        LinkedListNode<T> node = this;
+        while (node != null) {
+            str.append("[" + node.getData().toString() + "] - ");
+            node = node.getNext();
+        }
+        return str.toString();
     } 
 
 }
