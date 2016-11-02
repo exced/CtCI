@@ -1,6 +1,8 @@
+package c1;
 /*
 * Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 */
+import ctcilib.Matrix;
 
 class Position {
     private int x;
@@ -39,9 +41,9 @@ public class Q7 {
     public static void main(String[] args) {
         int[][] matrix1 = {{1,2},{0,3},{4,5}};
         System.out.println("matrix1 before setting zeros");
-        ctcilib.Matrix.printMatrix(matrix1);
+        printMatrix(matrix1);
         System.out.println("matrix1 after setting zeros");
         setZeros(matrix1, 3, 2);
-        ctcilib.Matrix.printMatrix(matrix1);
+        printMatrix(matrix1);
     }
 }

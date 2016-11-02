@@ -1,7 +1,9 @@
+package c1;
 /*
 * Given an image represented by an NxN matrix, where each pixel in the image is 4
 * bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
 */
+import ctcilib.Matrix;
 
 public class Q6 {  
 
@@ -23,15 +25,15 @@ public class Q6 {
     public static void main(String[] args) {
         int[][] matrix1 = {{1,2,3},{4,5,6},{7,8,9}};
         System.out.println("matrix1 before rotation");
-        ctcilib.Matrix.printMatrix(matrix1);
+        printMatrix(matrix1);
         System.out.println("matrix1 after rotation");
         rotate(matrix1, 3);
-        ctcilib.Matrix.printMatrix(matrix1);
+        printMatrix(matrix1);
         int[][] matrix2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
         System.out.println("matrix2 before rotation");
-        ctcilib.Matrix.printMatrix(matrix2);
+        printMatrix(matrix2);
         System.out.println("matrix2 after rotation");
         rotate(matrix2, 4);
-        ctcilib.Matrix.printMatrix(matrix2);        
+        printMatrix(matrix2);        
     }
 }

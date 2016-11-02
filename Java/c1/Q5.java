@@ -1,3 +1,4 @@
+package c1;
 /*
 * Implement a method to perform basic string compression using the counts of repeated characters. 
 * For example, the string a a b c c c c c a a a would become a2blc5a3. 
