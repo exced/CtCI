@@ -3,19 +3,7 @@
 * bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
 */
 
-public class Q6 {
-
-    /*
-    * print the matrix
-    */
-    public static void printMatrix(int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }    
+public class Q6 {  
 
     /*
     * pre : NxN matrix
@@ -35,15 +23,15 @@ public class Q6 {
     public static void main(String[] args) {
         int[][] matrix1 = {{1,2,3},{4,5,6},{7,8,9}};
         System.out.println("matrix1 before rotation");
-        printMatrix(matrix1);
+        ctcilib.Matrix.printMatrix(matrix1);
         System.out.println("matrix1 after rotation");
         rotate(matrix1, 3);
-        printMatrix(matrix1);
+        ctcilib.Matrix.printMatrix(matrix1);
         int[][] matrix2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
         System.out.println("matrix2 before rotation");
-        printMatrix(matrix2);
+        ctcilib.Matrix.printMatrix(matrix2);
         System.out.println("matrix2 after rotation");
         rotate(matrix2, 4);
-        printMatrix(matrix2);        
+        ctcilib.Matrix.printMatrix(matrix2);        
     }
 }

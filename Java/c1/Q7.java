@@ -13,19 +13,7 @@ class Position {
     public int getY(){ return this.y; }
 }
 
-public class Q7 {
-
-    /*
-    * print the matrix
-    */
-    public static void printMatrix(int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }    
+public class Q7 {  
 
     /*
     * keep track of the zeros
@@ -51,9 +39,9 @@ public class Q7 {
     public static void main(String[] args) {
         int[][] matrix1 = {{1,2},{0,3},{4,5}};
         System.out.println("matrix1 before setting zeros");
-        printMatrix(matrix1);
+        ctcilib.Matrix.printMatrix(matrix1);
         System.out.println("matrix1 after setting zeros");
         setZeros(matrix1, 3, 2);
-        printMatrix(matrix1);
+        ctcilib.Matrix.printMatrix(matrix1);
     }
 }
