@@ -12,4 +12,4 @@ It's important to write theses solutions without IDE. Keep it mind that you won'
 ### Is there any trick I need to know ?
 ...yes. 
 
-### Naive approach / implentation
+### Naive approach / implementation
