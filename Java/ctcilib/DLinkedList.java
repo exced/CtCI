@@ -41,6 +41,20 @@ public class DLinkedList<T> {
         this.first.removeDups();
     }    
 
+    public DLinkedList<T> kth2End(int k) {
+        if (k <= 0)
+            return null;
+        DLinkedListNode<T> node = this.getFirst();
+        /* move to kth */
+        for (int i = 1; i <= k; i++) {
+            if (node == null)
+                return null;
+            node = node.getNext();    
+        }
+        return new DLinkedList<T>(node);
+    }
+
+
     public String toString() {
         return this.first.toString();
     }

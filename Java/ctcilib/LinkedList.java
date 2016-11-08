@@ -13,6 +13,10 @@ public class LinkedList<T> {
         this.first = new LinkedListNode<T>();
     }
 
+    public LinkedList(LinkedListNode<T> first) {
+        this.first = first;
+    }
+
     /*
     * build a singly linked list from "left ro right" according to the arguments order.
     */
@@ -43,6 +47,19 @@ public class LinkedList<T> {
 
     public String toString() {
         return this.first.toString();
+    }
+
+    public LinkedList<T> kth2End(int k) {
+        if (k <= 0)
+            return null;
+        LinkedListNode<T> node = this.getFirst();
+        /* move to kth */
+        for (int i = 1; i <= k; i++) {
+            if (node == null)
+                return null;
+            node = node.getNext();    
+        }
+        return new LinkedList<T>(node);
     }
 
 }
