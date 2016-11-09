@@ -3,7 +3,7 @@ package ctcilib;
 /*
 * Singly Linked List
 */
-public class LinkedListNode<T> {
+public class LinkedListNode<T extends Comparable<T>> {
 
     private T data;
     private LinkedListNode<T> next;
@@ -42,6 +42,23 @@ public class LinkedListNode<T> {
     public void setNext(LinkedListNode<T> next) { this.next = next; }
 
     /*
+    * append node to the tail
+    */
+    public void append(LinkedListNode<T> node) {
+        LinkedListNode<T> currentNode = this;
+        /* move to the end */
+        while (currentNode.getNext() != null) {
+            currentNode = currentNode.getNext();
+        }
+        /* append */
+        while (node != null) {
+            currentNode.setNext(node);
+            currentNode = currentNode.getNext();
+            node = node.getNext();
+        }
+    }
+
+    /*
     * using singly linked list
     */
     public void removeDups() {
@@ -63,7 +80,7 @@ public class LinkedListNode<T> {
         }
     }  
 
-    public LinkedListNode<T> kth2End(int k) {
+    public LinkedListNode<T> slice(int k) {
         if (k <= 0)
             return null;
         LinkedListNode<T> node = this;
@@ -83,6 +100,31 @@ public class LinkedListNode<T> {
         next = next.getNext();            
         return true;
     }        
+
+    /*
+    * Write code to partition a linked list around a value x, such that all nodes less than x come 
+    * before alt nodes greater than or equal to x.
+    */    
+    public LinkedListNode<T> splitPart(T value) {
+        LinkedListNode<T> le_begin = new LinkedListNode<T>();
+        LinkedListNode<T> le_end = le_begin;
+        LinkedListNode<T> g_begin = new LinkedListNode<T>();
+        LinkedListNode<T> g_end = g_begin;
+        LinkedListNode<T> currentNode = this;
+        while (currentNode != null) {
+            if (currentNode.getData().compareTo(value) <= 0) {
+                le_end.setNext(currentNode);
+                le_end = le_end.getNext();
+            }                
+            else {
+                g_end.setNext(currentNode);
+                g_end = g_end.getNext();
+            }                
+            currentNode = currentNode.getNext();                
+        }
+        le_begin.getNext().append(g_begin.getNext());         
+        return le_begin.getNext();
+    }
 
     public String toString() {
         java.lang.StringBuffer str = new java.lang.StringBuffer();
