@@ -10,12 +10,7 @@ void reverse(char * str) {
         return ;
 
     int i = 0;
-    int length = 0;        
-    /* get length */
-    while (str[i] != '\0') {
-        length++;
-        i++;
-    }   
+    size_t length = strlen(str);        
     char * tmp = malloc(length*sizeof(char));    
     for (i = 0; i < length; i++) {
         tmp[i] = str[length-i-1];
