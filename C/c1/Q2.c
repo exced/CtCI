@@ -8,7 +8,6 @@
 void reverse(char * str) {
     if (str == NULL)
         return ;
-
     int i = 0;
     size_t length = strlen(str);        
     char * tmp = malloc(length*sizeof(char));    

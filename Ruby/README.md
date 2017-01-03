@@ -1,9 +1,0 @@
-# Ruby
-
-## Install
-
-## Build
-
-## Run
-
-

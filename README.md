@@ -1,3 +1,3 @@
 # CtCI
-Cracking the Coding Interview solutions, 5th edition
+Cracking the Coding Interview solutions, 6th edition
 
