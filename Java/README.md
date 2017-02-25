@@ -1,9 +1,14 @@
 # Java
 
-## Install
+## Build chapterX
+```bash
+javac cX/*.java
+```
 
-## Build
+## Run chapterX/QuestionY
+```bash
+java cX.QY
+```
 
-## Run
 
 
