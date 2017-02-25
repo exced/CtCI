@@ -12,9 +12,9 @@ func TestIsPermutation(t *testing.T) {
 	}{
 		{"", "", true},
 		{"abcd", "dbac", true},
-		{"aa", "a", true},
-		{"aba", "", true},
-		{"a", "bac", false},
+		{"aa", "a", false},
+		{"aba", "", false},
+		{"c", "c", true},
 	}
 	for _, c := range cases {
 		got := isPermutation(c.in1, c.in2)
