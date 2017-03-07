@@ -1,39 +1,48 @@
 package c1;
 /*
-* Given an image represented by an NxN matrix, where each pixel in the image is 4
-* bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+* Implement a method to perform basic string compression using the counts of repeated characters. 
+* For example, the string a a b c c c c c a a a would become a2blc5a3. 
+* If the "compressed" string would not become smaller than the original string, your method should
+* return the original string
 */
-import ctcilib.Matrix;
 
-public class Q6 {  
+public class Q5 {
 
-    /*
-    * pre : NxN matrix
-    */
-    public static void rotate(int[][] matrix, int n) {
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = i; j < n-i-1; j++) {
-                int tmp = matrix[i][j];
-                matrix[i][j] = matrix[n-1-j][i];
-                matrix[n-1-j][i] = matrix[n-1-i][n-1-j];
-                matrix[n-1-i][n-1-j] = matrix[j][n-1-i];
-                matrix[j][n-1-i] = tmp;
-            }
+    public static boolean isCompressBetter(String str) {
+        if (str.length() <= 1)
+            return false;
+        int compress_length = 0;    
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            count++; 
+            if (i == str.length()-1 || str.charAt(i) != str.charAt(i+1)) {
+                compress_length += 1 + String.valueOf(count).length();   
+                count = 0; 
+            }    
         }
+        return compress_length < str.length();
+    }
+
+    public static String compress(String str) {
+        if (!isCompressBetter(str))
+            return str;
+        java.lang.StringBuffer res = new java.lang.StringBuffer();
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            count++;
+            if (i == str.length()-1 || str.charAt(i) != str.charAt(i+1)) {
+                res.append(str.charAt(i));
+                res.append(count);
+                count = 0;
+            }                
+        }
+        return res.toString();
     }
 
     public static void main(String[] args) {
-        int[][] matrix1 = {{1,2,3},{4,5,6},{7,8,9}};
-        System.out.println("matrix1 before rotation");
-        Matrix.printMatrix(matrix1);
-        System.out.println("matrix1 after rotation");
-        rotate(matrix1, 3);
-        Matrix.printMatrix(matrix1);
-        int[][] matrix2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
-        System.out.println("matrix2 before rotation");
-        Matrix.printMatrix(matrix2);
-        System.out.println("matrix2 after rotation");
-        rotate(matrix2, 4);
-        Matrix.printMatrix(matrix2);        
+        String[] words = { "", "abcd", "aaa", "baa", "aab", "aaabc", "aabbccc"};
+        for (String word : words) {
+            System.out.println("compression of " + word + " ? " + isCompressBetter(word) + " : " + compress(word));
+        }
     }
 }

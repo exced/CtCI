@@ -1,49 +1,39 @@
 package c1;
 /*
-* Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
+* Given an image represented by an NxN matrix, where each pixel in the image is 4
+* bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
 */
 import ctcilib.Matrix;
 
-class Position {
-    private int x;
-    private int y;
-    public Position(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-    public int getX(){ return this.x; }
-    public int getY(){ return this.y; }
-}
-
-public class Q7 {  
+public class Q6 {  
 
     /*
-    * keep track of the zeros
+    * pre : NxN matrix
     */
-    public static void setZeros(int[][] matrix, int m, int n) {
-        java.util.ArrayList<Position> zeroPos = new java.util.ArrayList<Position>();
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (matrix[i][j] == 0)
-                    zeroPos.add(new Position(i,j));
+    public static void rotate(int[][] matrix, int n) {
+        for (int i = 0; i < n / 2; i++) {
+            for (int j = i; j < n-i-1; j++) {
+                int tmp = matrix[i][j];
+                matrix[i][j] = matrix[n-1-j][i];
+                matrix[n-1-j][i] = matrix[n-1-i][n-1-j];
+                matrix[n-1-i][n-1-j] = matrix[j][n-1-i];
+                matrix[j][n-1-i] = tmp;
             }
-        }
-        for (Position pos : zeroPos) {
-            for (int j = 0; j < n; j++) {
-                matrix[pos.getX()][j] = 0;
-            }
-            for (int i = 0; i < m; i++) {
-                matrix[i][pos.getY()] = 0;
-            }            
         }
     }
 
     public static void main(String[] args) {
-        int[][] matrix1 = {{1,2},{0,3},{4,5}};
-        System.out.println("matrix1 before setting zeros");
+        int[][] matrix1 = {{1,2,3},{4,5,6},{7,8,9}};
+        System.out.println("matrix1 before rotation");
         Matrix.printMatrix(matrix1);
-        System.out.println("matrix1 after setting zeros");
-        setZeros(matrix1, 3, 2);
+        System.out.println("matrix1 after rotation");
+        rotate(matrix1, 3);
         Matrix.printMatrix(matrix1);
+        int[][] matrix2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        System.out.println("matrix2 before rotation");
+        Matrix.printMatrix(matrix2);
+        System.out.println("matrix2 after rotation");
+        rotate(matrix2, 4);
+        Matrix.printMatrix(matrix2);        
     }
 }
