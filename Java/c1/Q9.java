@@ -6,7 +6,7 @@ package c1;
 */
 
 
-public class Q8 {
+public class Q9 {
 
     /*
     * aliasing contains String method

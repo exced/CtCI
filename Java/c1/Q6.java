@@ -6,7 +6,7 @@ package c1;
 * return the original string
 */
 
-public class Q5 {
+public class Q6 {
 
     public static boolean isCompressBetter(String str) {
         if (str.length() <= 1)

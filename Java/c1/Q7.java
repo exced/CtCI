@@ -5,7 +5,7 @@ package c1;
 */
 import ctcilib.Matrix;
 
-public class Q6 {  
+public class Q7 {  
 
     /*
     * pre : NxN matrix

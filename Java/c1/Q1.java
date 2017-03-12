@@ -43,7 +43,7 @@ public class Q1 {
     */
     public static boolean hasAllUniqueChars3(String str) {
         if (str.length() > 256)
-            return false;        
+            return false;
         boolean[] boolSet = new boolean[256];
         for (int i = 0; i < str.length(); i++) {
             int index = str.charAt(i);

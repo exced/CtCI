@@ -7,7 +7,6 @@ package c1;
 */
 
 public class Q3 {
-
     /*
     * Naive approach
     * you might think of this implementation first, but using aux buffer means this operation is not inplace...

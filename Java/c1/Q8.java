@@ -15,7 +15,7 @@ class Position {
     public int getY(){ return this.y; }
 }
 
-public class Q7 {  
+public class Q8 {  
 
     /*
     * keep track of the zeros
