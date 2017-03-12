@@ -1,6 +1,6 @@
 package ctcilib;
 
-public class Stack<T> {
+public class Stack<T extends Comparable<T>> {
 
     LinkedListNode<T> top;
 
@@ -14,6 +14,10 @@ public class Stack<T> {
         LinkedListNode<T> top_ = this.top;            
         this.top = this.top.getNext();
         return top_.getData();
+    }
+
+    public T peek(){
+        return this.top.getData();
     }
 
     public void push(T data){
