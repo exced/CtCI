@@ -20,8 +20,16 @@ Do not use '+' operator to concatenante String. (complexity matters)
 ## LinkedList
 
 ## Stack
+* pop()
+* push(item)
+* peek()
+* empty()
 
 ## Queue
+* pop()
+* push(item)
+* peek()
+* empty()
 
 ## Heap
 

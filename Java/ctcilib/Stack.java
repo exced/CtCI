@@ -8,22 +8,28 @@ public class Stack<T extends Comparable<T>> {
         this.top = new LinkedListNode<T>(data);
     }
 
-    public T pop(){
+    public T pop() throws EmptyStackException{
         if (this.top == null)
-            return null;
-        LinkedListNode<T> top_ = this.top;            
+            throw new EmptyStackException();
+        T data = this.top.getData();
         this.top = this.top.getNext();
-        return top_.getData();
+        return data;
     }
 
-    public T peek(){
+    public boolean empty(){
+        return this.top == null;
+    }
+
+    public T peek() throws EmptyStackException {
+        if (this.top == null)
+            throw new EmptyStackException();       
         return this.top.getData();
     }
 
     public void push(T data){
         if (this.top == null)
             this.top = new LinkedListNode<T>(data);
-        this.top.setNext(data);
+        this.top.setNext(new LinkedListNode<T>(data));
         this.top = this.top.getNext();
     }
 }
