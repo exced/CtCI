@@ -103,12 +103,12 @@ public class LinkedListNode<T extends Comparable<T>> {
 
     /*
     * Write code to partition a linked list around a value x, such that all nodes less than x come 
-    * before alt nodes greater than or equal to x.
+    * before all nodes greater than or equal to x.
     */    
     public LinkedListNode<T> splitPart(T value) {
-        LinkedListNode<T> le_begin = new LinkedListNode<T>();
+        LinkedListNode<T> le_begin = new LinkedListNode<T>(); // lower equal
         LinkedListNode<T> le_end = le_begin;
-        LinkedListNode<T> g_begin = new LinkedListNode<T>();
+        LinkedListNode<T> g_begin = new LinkedListNode<T>(); // greater
         LinkedListNode<T> g_end = g_begin;
         LinkedListNode<T> currentNode = this;
         while (currentNode != null) {

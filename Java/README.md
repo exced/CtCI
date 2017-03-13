@@ -41,3 +41,6 @@ Do not use '+' operator to concatenante String. (complexity matters)
 
 ## Parallelization
 
+## Runners
+Fast runner - Slow runner
+
