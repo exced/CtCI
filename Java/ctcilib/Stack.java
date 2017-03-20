@@ -8,7 +8,7 @@ public class Stack<T extends Comparable<T>> {
         this.top = new LinkedListNode<T>(data);
     }
 
-    public T pop() throws EmptyStackException{
+    public T pop() throws IndexOutOfBoundsException{
         if (this.top == null)
             throw new EmptyStackException();
         T data = this.top.getData();

@@ -59,13 +59,40 @@ public class LinkedListNode<T extends Comparable<T>> {
     }
 
     /*
+    * get length of list
+    */
+    public int length() {
+        int length = 0;
+        LinkedListNode<T> curr = this;
+        while (curr != null) {
+            length++;
+            curr = curr.getNext();
+        }
+        return length;
+    }
+
+    /*
+    * remove index
+    */
+    public void remove(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index > this.length()) {
+            throw new IndexOutOfBoundsException();
+        }
+        LinkedListNode<T> curr = this;
+        for (int i = 0; i < index - 1; i++) {
+            curr = curr.getNext();
+        }
+        curr.setNext(curr.getNext().getNext());
+    }
+
+    /*
     * using singly linked list
     */
     public void removeDups() {
         java.util.HashMap<T,Integer> countMap = new java.util.HashMap<T,Integer>();
         if (this != null) {
             LinkedListNode<T> next = this.getNext();
-            countMap.put(this.data,new Integer(1));
+            countMap.put(this.data, new Integer(1));
             while(next != null) {
                 T data = next.getData();
                 if (countMap.containsKey(data))
@@ -92,14 +119,6 @@ public class LinkedListNode<T extends Comparable<T>> {
         }
         return node;
     }    
-
-    public boolean removeNode() {
-        if (next == null)
-            return false;
-        data = next.getData();
-        next = next.getNext();            
-        return true;
-    }        
 
     /*
     * Write code to partition a linked list around a value x, such that all nodes less than x come 

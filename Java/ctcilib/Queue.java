@@ -17,16 +17,16 @@ public class Queue<T extends Comparable<T>> {
         this.tail = this.tail.getNext();
     }
 
-    public T peek() throws EmptyQueueException {
+    public T peek() throws IndexOutOfBoundsException {
         if (head == null) 
-            throw new EmptyQueueException();        
+            throw new IndexOutOfBoundsException();        
         return this.head.getData();
     }
 
     /* remove head */
-    public T pop() throws EmptyQueueException {
+    public T pop() throws IndexOutOfBoundsException {
         if (head == null) 
-            throw new EmptyQueueException();
+            throw new IndexOutOfBoundsException();
         T data = this.head.getData();
         this.head = this.head.getNext();
         if (this.head.equals(this.tail))
