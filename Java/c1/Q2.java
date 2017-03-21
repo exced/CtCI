@@ -17,7 +17,7 @@ public class Q2 {
         }
         /* pop with the second string */
         for (char c : s2.toCharArray()) {
-            if (s1_char_set[c] >= 0) 
+            if (s1_char_set[c] >= 0)
                 s1_char_set[c]--;
             else
                 return false;   
@@ -34,7 +34,7 @@ public class Q2 {
             Character strAt = new Character(str.charAt(i));
             /* if already present, increment. else create the field */
             map.put(strAt, map.containsKey(strAt) ? new Integer(map.get(strAt).intValue() + 1) : new Integer(1));
-        }        
+        }
         return map;
     }
 
