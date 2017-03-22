@@ -24,6 +24,7 @@ public class Quicksort {
             return;
         }
         int p = partition(a, left, right);
+        System.out.println("pivot : " + p);
         quicksort(a, left, p-1);
         quicksort(a, p+1, right);
     }

@@ -13,18 +13,17 @@ public class Knapsack {
         for (int row = 0; row <= N; row++) {
             V[row][0] = 0;
         }
-        for (int item=1;item<=N;item++){
+        for (int item = 1; item <= N; item++) {
             //Let's fill the values row by row
-            for (int weight=1;weight<=W;weight++){
+            for (int weight = 1; weight <= W; weight++) {
                 //Is the current items weight less than or equal to running weight
-                if (wt[item-1]<=weight){
+                if (wt[item - 1] <= weight) {
                     //Given a weight, check if the value of the current item + value of the item that we could afford with the remaining weight
                     //is greater than the value without the current item itself
-                    V[item][weight]=Math.max (val[item-1]+V[item-1][weight-wt[item-1]], V[item-1][weight]);
-                }
-                else {
+                    V[item][weight] = Math.max(val[item - 1] + V[item - 1][weight - wt[item - 1]], V[item - 1][weight]);
+                } else {
                     //If the current item's weight is more than the running weight, just carry forward the value without the current item
-                    V[item][weight]=V[item-1][weight];
+                    V[item][weight] = V[item - 1][weight];
                 }
             }
         }
@@ -39,9 +38,9 @@ public class Knapsack {
     }
 
     public static void main(String[] args) throws Exception {
-        int val[] = {10, 40, 30, 50};
-        int wt[] = {5, 4, 6, 3};
+        int val[] = { 10, 40, 30, 50 };
+        int wt[] = { 5, 4, 6, 3 };
         int W = 10;
         System.out.println(knapsack(val, wt, W));
-    }    
+    }
 }

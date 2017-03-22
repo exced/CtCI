@@ -2,8 +2,11 @@ package ctcilib;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
 
 public class Permutation {
+
+    private ArrayList<String> allPerms = new ArrayList<String>();
 
     public static Set<String> perm1(String str) {
         Set<String> perm = new HashSet<String>();
@@ -74,6 +77,6 @@ public class Permutation {
         System.out.println("\nPermutations 3 for " + s2 + " are: ");
         perm3(s2);
         System.out.println("perm2 h43o");
-        perm2("h43o".toCharArray(), 4);
+        perm2("h43".toCharArray(), 3);
     }
 }
