@@ -38,6 +38,7 @@ public class Graph {
         if (visited.contains(source.id)) {
             return false;
         }
+        visited.add(source.id);
         if (destination == source) {
             return true;
         }
@@ -67,6 +68,7 @@ public class Graph {
             if (visited.contains(node.id)) {
                 continue;
             }
+            visited.add(node.id);
             for (Node adj : node.adjacents) {
                 visiting.add(adj);
             }

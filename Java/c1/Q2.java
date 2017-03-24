@@ -46,10 +46,10 @@ public class Q2 {
         if (fst.length() != snd.length())
             return false;        
         return charFrequency(fst).equals(charFrequency(snd));
-    }    
+    }
 
     /*
-    * aux function to sort string, will be useful -> CtciLib
+    * aux function to sort string
     */
     public static String sortString(String s) {
         char[] char_set = s.toCharArray();
