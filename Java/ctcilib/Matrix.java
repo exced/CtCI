@@ -5,7 +5,7 @@ package ctcilib;
 */
 public class Matrix {
     
-    /*
+    /**
     * print the matrix
     */
     public static void printMatrix(int[][] matrix) {
@@ -15,6 +15,20 @@ public class Matrix {
             }
             System.out.println();
         }
-    }  
+    }
 
+    /**
+     * matrix should have been initialized
+     */
+    public static void diagonalTraversal(int[][] matrix) {
+        for (int i = matrix.length; i >= 0; i--) {
+            for (int j = ) {
+
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+    }
 }

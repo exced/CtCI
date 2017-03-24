@@ -37,6 +37,31 @@ public class BTree {
         visit(root);
     }
 
+    /**
+     * list of depths using BFS
+     */
+    public LinkedList<Node>[] ListOfDepths(Node root, int depth) {
+        LinkedList<Node>[] result = new LinkedList<Node>[depth];
+        LinkedList<Node> visiting = new LinkedList<Node>();
+        HashSet<Node> visited = new HashSet<Node>();
+        visiting.add(root);
+        int index = 0;
+        while(!visiting.isEmpty()) {
+            Node head = visiting.remove();
+            if (visited.contains(adj)) {
+                continue;
+            }
+            visited.add(head);
+            result[index] = new LinkedList<Node>();
+            for (Node adj : head.adjacents) {
+                visiting.add(adj);
+                result[index].add(adj);
+            }
+            index++;
+        }
+        return result;
+    }
+
     private void visit(TreeNode root) {
         System.out.println(root.name);
     }
