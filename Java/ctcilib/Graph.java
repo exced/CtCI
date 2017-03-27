@@ -9,9 +9,9 @@ public class Graph {
     private HashMap<Integer, Node> nodeLookup = new HashMap<Integer, Node>();
 
     public static class Node {
-        private int id;
+        private Integer id;
         LinkedList<Node> adjacents = new LinkedList<Node>();
-        private Node(int id) {
+        private Node(Integer id) {
             this.id = id;
         }
     }
@@ -35,13 +35,13 @@ public class Graph {
     }
 
     public boolean hasPathDFS(Node source, Node destination, HashSet<Integer> visited) {
-        if (visited.contains(source.id)) {
-            return false;
-        }
-        visited.add(source.id);
         if (destination == source) {
             return true;
         }
+        if (visited.contains(source.id)) {
+            return false;
+        }
+        visited.add(source.id);        
         for (Node adj : source.adjacents) {
             if (hasPathDFS(adj, destination, visited)) {
                 return true;

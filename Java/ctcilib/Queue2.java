@@ -16,7 +16,7 @@ public class Queue2<T> {
     
     private QueueNode<T> head;
     
-    public Queue<T>(T data) {
+    public Queue2(T data) {
         this.head = new QueueNode<T>(data);
     }
     
